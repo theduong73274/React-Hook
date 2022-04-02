@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.scss";
+import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 
 function App() {
@@ -19,11 +20,17 @@ function App() {
     setTodoList(newTodoList);
   }
 
+  function handleTodoFormSubmit(formValues) {
+    console.log(formValues);
+    // add new todo to current todo list
+  }
+
   return (
     <div className="App">
       <h1>ReactJS hook</h1>
 
       {/* <ColorBox /> */}
+      <TodoForm onSubmit={handleTodoFormSubmit} />
       <TodoList todos={todoList} onTodoClick={handleTodoClick} />
     </div>
   );
