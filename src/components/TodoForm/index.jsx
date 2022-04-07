@@ -15,7 +15,7 @@ function TodoForm(props) {
 
     function handleValueChange(e){
         setValue(e.target.value);
-        console.log(e.target.value);
+        // console.log(e.target.value);
     }
 
     function handleSubmit(e){
@@ -28,6 +28,9 @@ function TodoForm(props) {
             
         };
         onSubmit(formValues);
+
+        // Reset form
+        setValue('');
     }
 
     return (

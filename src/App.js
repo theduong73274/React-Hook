@@ -21,8 +21,15 @@ function App() {
   }
 
   function handleTodoFormSubmit(formValues) {
-    console.log(formValues);
+    // console.log(formValues);
     // add new todo to current todo list
+    const newTodo = {
+      id: +new Date(),
+      ...formValues,
+    };
+    const newTodoList = [...todoList];
+    newTodoList.push(newTodo);
+    setTodoList(newTodoList);
   }
 
   return (
