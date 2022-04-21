@@ -5,6 +5,7 @@ import queryString from "query-string";
 import PostList from "./components/PostList";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import PostFiltersForm from "./components/PostFiltersForm";
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -30,6 +31,7 @@ function App() {
       //  ...
       try {
         // _limit=10&_page=1
+        // code space text
         const paramsString = queryString.stringify(filters);
         const requestUrl = `http://js-post-api.herokuapp.com/api/posts?${paramsString}`;
         const response = await fetch(requestUrl);
@@ -81,6 +83,15 @@ function App() {
     });
   }
 
+  function handleFiltersChange(newFilters) {
+    console.log(newFilters);
+    setFilters({
+      ...filters,
+      _page: 1,
+      title_like: newFilters.searchTerm,
+    });
+  }
+
   return (
     <div className="App">
       <h1>ReactJS hook - Post List</h1>
@@ -88,6 +99,8 @@ function App() {
       {/* <ColorBox /> */}
       {/* <TodoForm onSubmit={handleTodoFormSubmit} />
       <TodoList todos={todoList} onTodoClick={handleTodoClick} /> */}
+
+      <PostFiltersForm onSubmit={handleFiltersChange} />
       <PostList posts={postList} />
       <Pagination pagination={pagination} onPageChange={handlePageChange} />
     </div>
