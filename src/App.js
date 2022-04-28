@@ -8,6 +8,7 @@ import TodoList from "./components/TodoList";
 import PostFiltersForm from "./components/PostFiltersForm";
 import Clock from "./components/Clock";
 import BetterClock from "./components/Better Clock";
+import MagicBox from "./components/MagicBox/MagicBox";
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -98,7 +99,8 @@ function App() {
     <div className="App">
       <h1>ReactJS hook - Post List</h1>
 
-      <Clock />
+      <MagicBox />
+      {/* <Clock /> */}
       <BetterClock />
       {/* <ColorBox /> */}
       {/* <TodoForm onSubmit={handleTodoFormSubmit} />
